@@ -20,10 +20,12 @@ phoBERT, rdrsegmenter=load.loadModel()
 
 extract = PhoBertExtraction(text,phoBERT, rdrsegmenter)
 tensorsSentence = extract.extraction_sentence_layer(index_layer=-1)
+tensorsMultiSentence = extract.extraction_sentence_multilayers(num_bot_layers=4)
 tensorsWord = extract.extraction_word_layer(index_layer=-1) 
-
 print("Tensor Sentences:")
 print(tensorsSentence.shape)
+print("Tensor Multilayer Sentences:")
+print(tensorsMultiSentence.shape)
 print("Tensor Words:")
 print([tensor.shape for tensor in tensorsWord])
 ```
@@ -33,6 +35,8 @@ loading archive file PhoBERT_large_fairseq
 | dictionary: 64000 types
 Tensor Sentences:
 torch.Size([2, 1024])
+Tensor Multilayer Sentences:
+torch.Size([2, 4096])
 Tensor Words:
 [torch.Size([1, 44, 1024]), torch.Size([1, 25, 1024])]
 ```

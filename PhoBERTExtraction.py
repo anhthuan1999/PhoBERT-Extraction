@@ -49,3 +49,10 @@ class PhoBertExtraction:
           tensorFilter=torch.from_numpy(np.mean(tensorUnit.detach().numpy()[0].T,axis=1).reshape(1,1024))
           tensorAll=torch.cat((tensorAll,tensorFilter))
         return tensorAll
+    def extraction_sentence_multilayers(self, num_bot_layers):
+        tensorAll=torch.empty(0,1024)
+        lstLayers=[]
+        for i in range(num_bot_layers):
+            lstLayers.append(self.extraction_sentence_layer(index_layer=-1-i))
+        tensorAll=torch.cat(tuple(lstLayers),1)
+        return tensorAll
