@@ -1,5 +1,5 @@
-# PhoBERT_Extraction
-Project will extract vectors by sentences and words with one layer or concat more layers (not update)
+# PhoBERT Extraction
+Project will extract vectors by sentences and words with one layer or concat more layers
 
 #### You have to install VNCoreNLP, fairseq, PyTorch and download PhoBERT_base_fairseq or PhoBERT_large_fairseq and the state-of-art full paper as well as code here: https://github.com/VinAIResearch/PhoBERT
 
